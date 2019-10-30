@@ -7,7 +7,6 @@
 	} from 'lodash'
 
 	export default {
-		name: 'LodashMap',
 		data() {
 			return {
 
