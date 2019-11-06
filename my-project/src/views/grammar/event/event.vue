@@ -31,7 +31,7 @@
 		},
 		watch: {
 			lovingVue(newvalue, oldvalue) {
-				console.log(value + '   ' + oldvalue)
+				console.log(newvalue + '   ' + oldvalue)
 			}
 		}
 	}
