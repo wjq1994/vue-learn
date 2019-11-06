@@ -29,9 +29,11 @@
 						return
 					}
 					//定义常用变量
+					const canDoFlag = 'true'
+					const cantDoFlag = 'false'
 					let func = binding.value.func
 					let time = binding.value.time || 300
-					el.dataset.canDo = 'true'
+					el.dataset.canDo = canDoFlag
 					let arrs = []
 					if (typeof binding.value === 'object' ) {
 						for (let key in binding.value) {
@@ -42,11 +44,11 @@
 						console.error('请传入正确参数')
 					}
 					el.onclick = (e) => {
-						if (el.dataset.canDo === 'true') {
-							el.dataset.canDo = 'false'
+						if (el.dataset.canDo === canDoFlag) {
+							el.dataset.canDo = cantDoFlag
 							func && func(e, ...arrs)
 							let timeout = setTimeout(() => {
-								el.dataset.canDo = 'true'
+								el.dataset.canDo = canDoFlag
 								clearTimeout(timeout)
 							}, time)
 						}
