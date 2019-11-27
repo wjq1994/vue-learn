@@ -10,7 +10,7 @@ let routers = require.context('../views', true, /\.vue$/i).keys()
 let detailRouterArr = []
 console.log(routers)
 routers.map((item) => {
-	const paths = item.match(/[a-zA-Z]+/g) //paths中存储了一个目录，二级目录，文件名，还会包括vue
+	const paths = item.match(/[a-zA-Z0-9]+/g) //paths中存储了一个目录，二级目录，文件名，还会包括vue
 	let name = ``
 	paths.forEach((val, index) => {
 		// 不包括vue
