@@ -40,3 +40,19 @@ location @router {
     rewrite ^.*$ /open/index.html last;
 }
 ```
+
+## 分析
+
+- 访问路由http://localhost/open/callout/zhao
+ 
+- 匹配到nginx配置 /open进入
+- try_files $uri $uri/ @router;
+   - $uri 表示先找/Users/wangjianqing/Desktop/csx/callout/dist/open/callout/zhao文件有没有，有就返回，
+   - $uri/ 再找/Users/wangjianqing/Desktop/csx/callout/dist/open/callout/zhao/路径有没有/Users/wangjianqing/Desktop/csx/callout/dist/open/callout/zhao/index.html或/Users/wangjianqing/Desktop/csx/callout/dist/open/callout/zhao/index.htm，有就返回，
+   - 最后走@router
+- rewrite ^.*$ /open/index.html last; 
+  - 重写路由直接到/open/index.html目录返回，这个就是vue的首页
+
+## 总结
+
+vue路由配置的核心就是将nginx指到vue的首页
